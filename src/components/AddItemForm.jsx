@@ -18,7 +18,7 @@ export default function AddItemForm() {
   return (
     <form
       className="shopping-form border rounded p-3 mb-3"
-      onsubmit={handleFormSubmit}
+      onSubmit={handleFormSubmit}
     >
       <div className="input-group">
         <input
