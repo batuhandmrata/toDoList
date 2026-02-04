@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function AddItemForm() {
+export default function AddItemForm({ onAddItem }) {
   const [name, setName] = useState("");
 
   function handleFormSubmit(e) {
@@ -11,7 +11,7 @@ export default function AddItemForm() {
       name: name,
       completed: false,
     };
-    console.log("Yeni eleman eklendi:", item);
+    onAddItem(item);
     setName("");
   }
 

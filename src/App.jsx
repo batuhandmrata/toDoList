@@ -4,6 +4,7 @@ import AddItemForm from "./components/AddItemForm";
 import FilterButtons from "./components/FilterButtons";
 import ListItems from "./components/ListItems";
 import ClearButton from "./components/ClearButton";
+import { useState } from "react";
 
 const urunler = [
   { id: 1, name: "Yumurta", completed: true },
@@ -14,12 +15,18 @@ const urunler = [
 ];
 
 export default function App() {
+  const [items, setItems] = useState(urunler);
+
+  function handleAddItem(item) {
+    setItems([...items, item]);
+  }
+
   return (
     <div className="container">
       <Header />
-      <AddItemForm />
+      <AddItemForm onAddItem={handleAddItem} />
       <FilterButtons />
-      <ListItems urunler={urunler} />
+      <ListItems items={items} />
       <ClearButton />
     </div>
   );
